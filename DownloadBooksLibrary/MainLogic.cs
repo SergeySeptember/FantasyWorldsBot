@@ -7,8 +7,7 @@
 
         public MainLogic(string ip, int port)
         {
-            //_downloadData = new(ip, port);
-            _downloadData = new("51.222.245.101", 80);
+            _downloadData = new(ip, port);
 
             // Проверка на наличие папки для сохранения файлов
             if (!Directory.Exists(_saveDirectory))
@@ -65,7 +64,7 @@
             if (book.DownloadLink is null) // ToDo: переделать на цифры
                 return "Отсутствует ссылка на файл";
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 30; i++)
             {
                 bookBytes = await _downloadData.DownloadBookAsync(book.DownloadLink, format);
 

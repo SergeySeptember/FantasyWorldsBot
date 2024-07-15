@@ -28,6 +28,10 @@ namespace DownloadBooksLibrary
                 if (titleNode != null)
                     book.Title = titleNode.InnerText.Trim();
 
+                HtmlNode? authorNode = bookNode.SelectSingleNode(".//a[@itemprop='author']");
+                if (authorNode != null)
+                    book.Author = authorNode.InnerText.Trim();
+
                 HtmlNode? descriptionNode = bookNode.SelectSingleNode(".//span[@itemprop='description']");
                 if (descriptionNode != null)
                     book.Description = descriptionNode.InnerText.Trim();
